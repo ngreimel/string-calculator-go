@@ -26,6 +26,12 @@ func Test4(t *testing.T) {
 	assertEqual(t, sum, expected)
 }
 
+func Test5(t *testing.T) {
+	sum := Calculator("1,6")
+	expected := 7
+	assertEqual(t, sum, expected)
+}
+
 func assertEqual(t *testing.T, sum int, expected int) {
 	if sum != expected {
 		t.Errorf("Expected %q but got %q", expected, sum)
