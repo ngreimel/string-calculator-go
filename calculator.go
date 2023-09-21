@@ -5,19 +5,19 @@ import (
 	"strings"
 )
 
-func Calculator(s string) int {
-	if s == "" {
+func Calculator(valuesToAdd string) int {
+	if valuesToAdd == "" {
 		return 0
 	}
-	if s == "1,2" {
-		sum := 0
-		stringsSplitByDelimiter := strings.Split(s, ",")
-		for i := 0; i < len(stringsSplitByDelimiter); i++ {
-			intValue, _ := strconv.Atoi(stringsSplitByDelimiter[i])
-			sum += intValue
-		}
-		return sum
+	return AddValues(valuesToAdd)
+}
+
+func AddValues(valuesToAdd string) int {
+	sum := 0
+	stringsSplitByDelimiter := strings.Split(valuesToAdd, ",")
+	for i := 0; i < len(stringsSplitByDelimiter); i++ {
+		intValue, _ := strconv.Atoi(stringsSplitByDelimiter[i])
+		sum += intValue
 	}
-	i, _ := strconv.Atoi(s)
-	return i
+	return sum
 }
