@@ -9,12 +9,15 @@ func Calculator(valuesToAdd string) int {
 	if valuesToAdd == "" {
 		return 0
 	}
-	return AddValues(valuesToAdd)
+	f := func(c rune) bool {
+		return c == ',' || c == '\n'
+	}
+	stringsSplitByDelimiter := strings.FieldsFunc(valuesToAdd, f)
+	return AddValues(stringsSplitByDelimiter)
 }
 
-func AddValues(valuesToAdd string) int {
+func AddValues(stringsSplitByDelimiter []string) int {
 	sum := 0
-	stringsSplitByDelimiter := strings.Split(valuesToAdd, ",")
 	for i := 0; i < len(stringsSplitByDelimiter); i++ {
 		intValue, _ := strconv.Atoi(stringsSplitByDelimiter[i])
 		sum += intValue
