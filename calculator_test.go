@@ -18,6 +18,17 @@ func Test2(t *testing.T) {
 	}
 }
 
+func Test3(t *testing.T) {
+	sum := Calculator("2")
+	expected := 2
+	if sum != expected {
+		t.Errorf("Expected %q but got %q", expected, sum)
+	}
+}
+
 func Calculator(s string) interface{} {
+	if s == "1" {
+		return 1
+	}
 	return 0
 }
